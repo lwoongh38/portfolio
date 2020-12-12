@@ -1,0 +1,9 @@
+.env
+__pycache__/
+.ipynb_checkpoints
+migrations
+.env
+.DS_Store
+.CGH repo/
+.MST repo/
+.ds-sc33x/

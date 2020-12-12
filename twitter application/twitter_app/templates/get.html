@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+유저 트윗 정보
+{% if message %}
+{{ message }}
+{% endif %}
+{% endblock  %}
+
+{% block lead  %}
+유저의 트윗을 검색하세요.
+{% endblock  %}
+
+{% block main_body  %}
+트윗을 보려면 Get 버튼을 누르세요.
+
+<form method="POST" action="/get">
+  <input name="tweets" class="form-control" type="text" placeholder="User Name">
+  <!-- <select name="tweets" class="form-control" id="exampleFormControlSelect1">
+    {% for user in myuser %}
+    <option value={{user.username}}>{{user.username}}</option>
+    {% endfor %}
+  </select> -->
+  <br/>
+  <input type="submit" class="btn btn-primary" value="Get" />
+</form>
+<br/>
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Text</th>
+      <th scope="col">User id</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tw in data %}
+    <tr>
+      <th scope="row">{{ tw.id }}</th>
+      <td>{{ tw.text }}</td>
+      <td>{{ tw.user_id }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock  %}

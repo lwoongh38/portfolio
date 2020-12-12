@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+유저 삭제
+{% if message %}
+{{ message }}
+{% endif %}
+{% endblock  %}
+
+{% block lead  %}
+유저이름 적어서 DB에서 삭제하세요
+{% endblock  %}
+
+{% block main_body  %}
+삭제하려면 유저네임을 넣고 delete 버튼을 누르세요.
+
+<form method="POST" action="/delete">
+  <input name="delete_info" class="form-control" type="text" placeholder="User Name">
+  <!-- <select name="tweets" class="form-control" id="exampleFormControlSelect1">
+    {% for user in myuser %}
+    <option value={{user.username}}>{{user.username}}</option>
+    {% endfor %}
+  </select> -->
+  <br/>
+  <input type="submit" class="btn btn-primary" value="Delete"" />
+</form>
+<br/>
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Twitter id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Followers</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in data %}
+    <tr>
+      <th scope="row">{{ user.id }}</th>
+      <td>{{ user.username }}</td>
+      <td>{{ user.full_name }}</td>
+      <td>{{ user.followers }}</td>
+      <td>{{ user.location }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock  %}

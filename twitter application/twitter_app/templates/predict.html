@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+Tweet으로 작성자 예측하기
+{% if message %}
+{{ message }}
+{% endif %}
+{% endblock  %}
+
+{% block lead  %}
+문장을 입력하여 두 명의 유저 중 작성자를 예측합니다.
+{% endblock  %}
+
+{% block main_body  %}
+각 항목을 입력하세요.
+
+<form method="POST" action="/predict">
+  <label for="exampleFormControlSelect1">First User to compare</label>
+  <input name="user_1" class="form-control" type="text" placeholder="User name">
+  <br/>
+  <label for="exampleFormControlSelect1">Second User to compare</label>  
+  <input name="user_2" class="form-control" type="text" placeholder="User name">
+  <br/>
+  <label for="exampleFormControlSelect1">Tweet to predict</label>  
+  <input name="input_tweet" class="form-control" type="text" placeholder="Input_tweet">
+  <br/>
+  <input type="submit" class="btn btn-primary" value="Compare" />
+</form>
+
+{% if statement %}
+<br/>
+<h3>Result : {{ statement }}</h3>
+{% endif %}
+
+<br/>
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Twitter id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Followers</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in data %}
+    <tr>
+      <th scope="row">{{ user.id }}</th>
+      <td>{{ user.username }}</td>
+      <td>{{ user.full_name }}</td>
+      <td>{{ user.followers }}</td>
+      <td>{{ user.location }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock  %}
