@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title  %}
-Full name 변경
+Update an User's Full Name
 {% if message %}
 {{ message }}
 {% endif %}
 {% endblock  %}
 
 {% block lead  %}
-Full name을 변경할 수 있습니다.
+Change an user's full name as you want 
 {% endblock  %}
 
 {% block main_body  %}
-before name과 after name에 적절한 내용을 입력하세요.
+This is Case-Sensitive
 
 <form method="POST" action="/update">
     <label for="exampleFormControlSelect1">Before Full Name</label>

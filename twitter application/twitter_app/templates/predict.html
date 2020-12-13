@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title  %}
-Tweet으로 작성자 예측하기
+Compare and Predict
 {% if message %}
 {{ message }}
 {% endif %}
 {% endblock  %}
 
 {% block lead  %}
-문장을 입력하여 두 명의 유저 중 작성자를 예측합니다.
+Predict a Tweet by Comparing 2 Twitter Users 
 {% endblock  %}
 
 {% block main_body  %}
-각 항목을 입력하세요.
+This is Case-Sensitive
 
 <form method="POST" action="/predict">
   <label for="exampleFormControlSelect1">First User to compare</label>

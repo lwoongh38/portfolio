@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title  %}
-유저 삭제
+Delete Users
 {% if message %}
 {{ message }}
 {% endif %}
 {% endblock  %}
 
 {% block lead  %}
-유저이름 적어서 DB에서 삭제하세요
+Delete users that you added before
 {% endblock  %}
 
 {% block main_body  %}
-삭제하려면 유저네임을 넣고 delete 버튼을 누르세요.
+This is Case-Sensitive
 
 <form method="POST" action="/delete">
   <input name="delete_info" class="form-control" type="text" placeholder="User Name">

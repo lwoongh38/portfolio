@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title  %}
-유저 트윗 정보
+Get Tweets on Twitter
 {% if message %}
 {{ message }}
 {% endif %}
 {% endblock  %}
 
 {% block lead  %}
-유저의 트윗을 검색하세요.
+See the Tweets of an added User
 {% endblock  %}
 
 {% block main_body  %}
-트윗을 보려면 Get 버튼을 누르세요.
+This is Case-Sensitive
 
 <form method="POST" action="/get">
   <input name="tweets" class="form-control" type="text" placeholder="User Name">
